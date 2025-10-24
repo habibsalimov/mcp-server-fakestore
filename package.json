@@ -1,6 +1,6 @@
 {
   "name": "@habibsalimov/mcp-server-fakestore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A beginner-friendly MCP server for Fake Store API - Learn to build MCP servers with real e-commerce data",
   "keywords": [
     "mcp",
