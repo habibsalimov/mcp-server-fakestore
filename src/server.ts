@@ -6,6 +6,7 @@
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+import { zodToJsonSchema } from 'zod-to-json-schema';
 import { logger } from './utils/logger.js';
 import {
   getProductsTool,
@@ -59,14 +60,15 @@ export function createServer() {
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     logger.info('Listing all tools');
     return {
-      tools: tools.map((tool) => ({
-        name: tool.name,
-        description: tool.description,
-        inputSchema: {
-          type: 'object',
-          properties: (tool.inputSchema as any)._def.shape(),
-        },
-      })),
+      tools: tools.map((tool) => {
+        // Convert Zod schema to JSON Schema and remove $schema metadata
+        const { $schema, ...schema } = zodToJsonSchema(tool.inputSchema);
+        return {
+          name: tool.name,
+          description: tool.description,
+          inputSchema: schema,
+        };
+      }),
     };
   });
 
@@ -85,22 +87,15 @@ export function createServer() {
     }
 
     try {
-      // Validate and execute tool
-      const validatedArgs = tool.inputSchema.parse(args);
+      // Validate and execute tool (handle null/undefined arguments)
+      const validatedArgs = tool.inputSchema.parse(args || {});
       const result = await tool.execute(validatedArgs as any);
       logger.info(`Tool executed successfully: ${name}`);
       return result;
     } catch (error: any) {
       logger.error(`Tool execution failed: ${name}`, error);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: `Error: ${error.message}`,
-          },
-        ],
-        isError: true,
-      };
+      // Let MCP SDK handle error formatting
+      throw error;
     }
   });
 
