@@ -15,7 +15,13 @@ export const getProductsTool = {
   name: 'fakestore_get_products',
   description: 'Get all products from Fake Store API with optional limit and sort',
   inputSchema: z.object({
-    limit: z.number().int().positive().max(100).optional().describe('Maximum number of products to return'),
+    limit: z
+      .number()
+      .int()
+      .positive()
+      .max(100)
+      .optional()
+      .describe('Maximum number of products to return'),
     sort: z.enum(['asc', 'desc']).optional().describe('Sort order: asc or desc'),
   }),
   async execute(args: { limit?: number; sort?: 'asc' | 'desc' }) {

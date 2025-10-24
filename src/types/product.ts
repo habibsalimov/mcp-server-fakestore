@@ -22,11 +22,7 @@ export interface Product {
 /**
  * Product category type
  */
-export type ProductCategory =
-  | 'electronics'
-  | 'jewelery'
-  | 'men\'s clothing'
-  | 'women\'s clothing';
+export type ProductCategory = 'electronics' | 'jewelery' | "men's clothing" | "women's clothing";
 
 /**
  * Sort order for product listings

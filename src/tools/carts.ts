@@ -15,7 +15,13 @@ export const getCartsTool = {
   name: 'fakestore_get_carts',
   description: 'Get all shopping carts from Fake Store API with optional limit and sort',
   inputSchema: z.object({
-    limit: z.number().int().positive().max(100).optional().describe('Maximum number of carts to return'),
+    limit: z
+      .number()
+      .int()
+      .positive()
+      .max(100)
+      .optional()
+      .describe('Maximum number of carts to return'),
     sort: z.enum(['asc', 'desc']).optional().describe('Sort order: asc or desc'),
   }),
   async execute(args: { limit?: number; sort?: 'asc' | 'desc' }) {

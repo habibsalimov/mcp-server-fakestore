@@ -15,7 +15,13 @@ export const getUsersTool = {
   name: 'fakestore_get_users',
   description: 'Get all users from Fake Store API with optional limit',
   inputSchema: z.object({
-    limit: z.number().int().positive().max(100).optional().describe('Maximum number of users to return'),
+    limit: z
+      .number()
+      .int()
+      .positive()
+      .max(100)
+      .optional()
+      .describe('Maximum number of users to return'),
   }),
   async execute(args: { limit?: number }) {
     try {

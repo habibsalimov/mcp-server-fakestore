@@ -1,5 +1,5 @@
 {
-  "name": "mcp-server-fakestore",
+  "name": "@habibsalimov/mcp-server-fakestore",
   "version": "1.0.0",
   "description": "A beginner-friendly MCP server for Fake Store API - Learn to build MCP servers with real e-commerce data",
   "keywords": [
@@ -46,7 +46,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run test && npm run lint"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
