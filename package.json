@@ -1,0 +1,75 @@
+{
+  "name": "mcp-server-fakestore",
+  "version": "1.0.0",
+  "description": "A beginner-friendly MCP server for Fake Store API - Learn to build MCP servers with real e-commerce data",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "fake-store-api",
+    "e-commerce",
+    "ai",
+    "claude",
+    "typescript",
+    "api",
+    "tutorial"
+  ],
+  "type": "module",
+  "author": "Habib Salimov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/habibsalimov/mcp-server-fakestore"
+  },
+  "bugs": {
+    "url": "https://github.com/habibsalimov/mcp-server-fakestore/issues"
+  },
+  "homepage": "https://github.com/habibsalimov/mcp-server-fakestore#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-server-fakestore": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test && npm run lint"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.6.0",
+    "winston": "^3.11.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "ts-jest": "^29.1.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

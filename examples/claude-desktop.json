@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "fakestore": {
+      "command": "mcp-server-fakestore"
+    }
+  }
+}
