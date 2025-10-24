@@ -1,6 +1,6 @@
 # 🛍️ MCP Server for Fake Store API
 
-[![npm version](https://badge.fury.io/js/mcp-server-fakestore.svg)](https://www.npmjs.com/package/mcp-server-fakestore)
+[![npm version](https://badge.fury.io/js/%40habibsalimov%2Fmcp-server-fakestore.svg)](https://www.npmjs.com/package/@habibsalimov/mcp-server-fakestore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 
@@ -26,7 +26,7 @@ A beginner-friendly **Model Context Protocol (MCP)** server that provides seamle
 ### Installation
 
 ```bash
-npm install -g mcp-server-fakestore
+npm install -g @habibsalimov/mcp-server-fakestore
 ```
 
 ### Usage with Claude Desktop
@@ -40,7 +40,8 @@ Add the server configuration to your Claude Desktop config file:
 {
   "mcpServers": {
     "fakestore": {
-      "command": "mcp-server-fakestore"
+      "command": "npx",
+      "args": ["-y", "@habibsalimov/mcp-server-fakestore"]
     }
   }
 }

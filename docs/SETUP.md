@@ -9,13 +9,13 @@ This guide will walk you through setting up the MCP Server for Fake Store API.
 Install the package globally via npm:
 
 ```bash
-npm install -g mcp-server-fakestore
+npm install -g @habibsalimov/mcp-server-fakestore
 ```
 
 Verify the installation:
 
 ```bash
-mcp-server-fakestore --version
+npx @habibsalimov/mcp-server-fakestore --version
 ```
 
 ### Method 2: Local Development
@@ -45,7 +45,8 @@ Open the configuration file and add the following:
 {
   "mcpServers": {
     "fakestore": {
-      "command": "mcp-server-fakestore"
+      "command": "npx",
+      "args": ["-y", "@habibsalimov/mcp-server-fakestore"]
     }
   }
 }
@@ -60,7 +61,8 @@ If you have other MCP servers, add it to the existing configuration:
       "command": "existing-command"
     },
     "fakestore": {
-      "command": "mcp-server-fakestore"
+      "command": "npx",
+      "args": ["-y", "@habibsalimov/mcp-server-fakestore"]
     }
   }
 }

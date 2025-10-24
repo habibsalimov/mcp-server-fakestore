@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "fakestore": {
-      "command": "mcp-server-fakestore"
+      "command": "npx",
+      "args": ["-y", "@habibsalimov/mcp-server-fakestore"]
     }
   }
 }
